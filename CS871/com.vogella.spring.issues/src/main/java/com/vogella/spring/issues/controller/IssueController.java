@@ -7,10 +7,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.vogella.spring.issues.entities.IssueReport;
+import com.vogella.spring.issues.repositories.IssueRepository;
 
 @Controller
 public class IssueController {
 	
+	IssueRepository issueRepository;
+	
+	IssueController (IssueRepository issueRepository){
+		this.issueRepository = issueRepository;
+	}
 		
 	@GetMapping("issuereport")
 	public String getReport (Model model) {
