@@ -1,6 +1,7 @@
 package com.vogella.spring.issues.controller;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 //import org.springframework.web.bind.annotation.RestController;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
@@ -24,19 +25,17 @@ public class IssueController {
 		return "issues/issuereport_form";
 	}
 	
-	@PostMapping("/issuereport") 
-	public String submitReport(IssueReport issueReport, Model model) {
-		
-		IssueReport result = this.issueRepository.save(issueReport);
-		model.addAttribute("submitted", true);
-		model.addAttribute("issuereport", result);
-		
-		return "issues/issuereport_form";
-	}
+	@PostMapping("/issuereport")
+		public String submitReport(IssueReport issueReport, RedirectAttributes ra) {
+		   this.issueRepository.save(issueReport);
+		   ra.addAttribute("submitted", true);
+		   return "redirect:/issuereport";
+		}
 	
 	@GetMapping("/issues")
-	public String getIssues () {		
-		return "issues/issuereport_list";
-	}
+    public String getIssues(Model model) {
+        model.addAttribute("issues", this.issueRepository.findAllButPrivate());
+       return "issues/issuereport_list";
+    }
 
 }
