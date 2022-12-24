@@ -26,8 +26,11 @@ public class IssueController {
 	
 	@PostMapping("/issuereport") 
 	public String submitReport(IssueReport issueReport, Model model) {
-		model.addAttribute("issuereport", new IssueReport());
+		
+		IssueReport result = this.issueRepository.save(issueReport);
 		model.addAttribute("submitted", true);
+		model.addAttribute("issuereport", result);
+		
 		return "issues/issuereport_form";
 	}
 	
