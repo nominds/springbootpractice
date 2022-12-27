@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Vogella Issuereport</title>
+    <title>OAES ItemBank</title>
     <link rel="stylesheet" href="./style.css" />
     <meta charset="UTF-8" />
 </head>
 <body>
     <div class="container">
         <form method="post" action="#" th:action="@{/issuereport}" th:object="${issuereport}">
-            <h3>Vogella Issuereport</h3>
+            <h3>OAES Question Bank</h3>
             <input type="text" placeholder="Email" id="email" th:field="*{email}">
             <input type="text" placeholder="Url where the issue was found on" id="url" th:field="*{url}"/>
             <textarea placeholder="Description of the issue" rows="5" id="description" th:field="*{description}"></textarea>
