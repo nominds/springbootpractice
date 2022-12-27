@@ -9,8 +9,8 @@
     <div class="container">
         <form method="post" action="#" th:action="@{/issuereport}" th:object="${issuereport}">
             <h3>OAES Question Bank</h3>
-            <input type="text" placeholder="Email" id="email" th:field="*{email}">
-            <input type="text" placeholder="Url where the issue was found on" id="url" th:field="*{url}"/>
+            <input type="text" placeholder="Created By" id="createdBy" th:field="*{createdBy}">
+            <input type="text" placeholder="Date when question was created/updated" id="createdOn" th:field="*{createdOn}"/>
             <textarea placeholder="Description of the issue" rows="5" id="description" th:field="*{description}"></textarea>
 
             <label for="private_id">

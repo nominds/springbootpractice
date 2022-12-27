@@ -34,7 +34,7 @@ public class IssueController {
 	
 	@GetMapping("/issues")
     public String getIssues(Model model) {
-        model.addAttribute("issues", this.issueRepository.findAllButPrivate());
+        //model.addAttribute("issues", this.issueRepository.findAllButPrivate());
        return "issues/issuereport_list";
     }
 
