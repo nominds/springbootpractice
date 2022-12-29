@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>OAES Question List</title>
+    <link rel="stylesheet" href="./style.css" />
+    <meta charset="UTF-8" />
+</head>
+<body>
+    <div class="container issue_list">
+        <h2>QuestionBank</h2>
+        <br />
+        <table>
+            <tr>
+				<th>QuestionID</th>
+                <th>Author</th>
+                <th>Date</th>
+                <th class="desc">Question</th>
+                <th class="desc">Answer</th>
+                <th>Remarks</th>                
+            </tr>
+            <th:block th:each="issue : ${issues}">
+                <tr>
+                    <td ><a th:href="@{${issue.id}}" th:text="${issue.id}"></a></td>
+                    <td th:text="${issue.CreatedBy}">...</td>
+                    <td th:text="${issue.CreatedOn}">...</td>
+                    <td th:text="${issue.Question}">...</td>
+                    <td th:text="${issue.Answer}">...</td>
+                    <td th:text="${issue.Remarks}">...</td>             
+                </tr>
+            </th:block>
+        </table>
+    </div>
+</body>
+</html>
