@@ -20,12 +20,7 @@ public class IssueReport {
     private String question;
     private String answer;
     private String remarks;
-    //private String email;
-    //private String url;
-    //private String description;
-    //private boolean markedAsPrivate;
-    //private boolean updates;
- 
+     
     
     public IssueReport() {}
     
