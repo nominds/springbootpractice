@@ -34,7 +34,7 @@ public class IssueController {
 	
 	@GetMapping("/items")
     public String getIssues(Model model) {
-       //model.addAttribute("issues", this.issueRepository.findAllButPrivate());
+       model.addAttribute("issues", this.issueRepository.findAll());
        return "issues/questionbankreport_list";
     }
 

@@ -9,8 +9,8 @@ import com.cs871.microservices.issues.entities.IssueReport;
 
 public interface IssueRepository extends JpaRepository<IssueReport, Long>{
 
-    //@Query(value = "SELECT i FROM IssueReport i WHERE markedAsPrivate = false")
-    //List<IssueReport> findAllButPrivate();
+    @Query(value = "SELECT i FROM IssueReport i")
+    List<IssueReport> findAll();
 
     //List<IssueReport> findAllByEmail(String email);
 }
