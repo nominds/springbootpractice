@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>OAES ItemBank</title>
+    <link rel="stylesheet" href="./style.css" />
+    <meta charset="UTF-8" />
+</head>
+<body>
+    <div class="container">
+        <form method="post" action="#" th:action="@{/itembankreport}" th:object="${issuereport}">
+            <h3>OAES Question Bank</h3>
+            <input type="text" placeholder="Created By" id="createdBy" th:field="*{createdBy}">
+            <input type="text" placeholder="Create or Update date" id="createdOn" th:field="*{createdOn}"/>
+            <textarea placeholder="Enter the question here" rows="5" id="question" th:field="*{question}"></textarea>
+            <textarea placeholder="Enter the answer here" rows="5" id="answer" th:field="*{answer}"></textarea>
+            <textarea placeholder="Enter the remarks/comments here" rows="2" id="remarks" th:field="*{remarks}"></textarea>
+			<!--
+            <label for="private_id">
+               Private?
+               <input type="checkbox" name="private" id="private_id" th:field="*{markedAsPrivate}"/>
+            </label>
+            <label for="updates_id">
+                Keep me posted
+                <input type="checkbox" id="updates_id" name="updates" th:field="*{updates}"/>
+            </label>
+			-->
+			
+            <input type="submit" value="Submit"/>
+        </form>
+
+        <div class="result_message" th:if="${submitted}">
+            <h3>Your report has been submitted.</h3>
+            <p>Find all issues <a href="/items">here</a></p>
+        </div>
+    </div>
+</body>
+</html>
